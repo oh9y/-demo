@@ -6,18 +6,21 @@ const num = ref('')
 const firstNum = ref()
 //算式的第二个数字
 const secondNum = ref()
+
+//获取鼠标按下的值
 function getvalue(e) {
   num.value += e.target.value
   x1.value.splice(0, 1, num.value)
 }
 
+//清除input框中的值
 function clearAll() {
   x1.value = [];
   num.value = ''
 }
 
+//删除一个刚刚输入的值（回退）
 function backLast() {
-
   num.value = num.value.substring(0, num.value.length - 1)
   x1.value.splice(0, 1, num.value)
   console.log(x1.value);
@@ -25,10 +28,12 @@ function backLast() {
 
 }
 
+// 输出到input框
 function calculator() {
   return x1.value
 }
 
+//计算（等于）
 function theResult() {
   // 加法
   const add = num.value.indexOf('+')
